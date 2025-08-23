@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Coffeecore — Shop</title>
+  <meta name="description" content="Coffeecore — cute stickers & cozy phone cases"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header>
+  <div class="brand">Coffeecore ☕</div>
+  <nav>
+    <a href="#stickers">Stickers</a>
+    <a href="#cases">Phone Cases</a>
+    <a href="#cart">Cart <span class="badge" id="cart-count">0</span></a>
+  </nav>
+</header>
+
+<main>
+  <p class="note">Tip: replace the SVGs with your real photos (same filenames) and they’ll show instantly.</p>
+
+  <section id="stickers">
+    <h2>Stickers</h2>
+    <div class="grid" id="stickers-grid"></div>
+  </section>
+
+  <section id="cases">
+    <h2>Phone Cases</h2>
+    <div class="grid" id="cases-grid"></div>
+  </section>
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p id="cart-total"><strong>Total:</strong> ₹0</p>
+    <button class="btn secondary" onclick="clearCart()">Clear Cart</button>
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </section>
+</main>
+
+<footer>© 2025 Coffeecore — handmade & cozy</footer>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
