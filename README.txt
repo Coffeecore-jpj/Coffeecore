@@ -1,1 +1,0 @@
-Put your product images here (e.g., sticker1.jpg). Update app.js image paths.
