@@ -67,11 +67,13 @@ function renderGrid(key, elId){
       </div>\`;
     wrap.appendChild(card);
   });
-}
+} 
 
 function checkout(){
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
   if(total<=0){ alert('Cart is empty'); return; }
+  alert("Checkout temporarily disabled.");
+}
 
   const options = {
     key: "rzp_test_yourkeyhere",   // TODO: replace with your real Razorpay Key ID
