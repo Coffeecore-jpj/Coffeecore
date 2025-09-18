@@ -8,40 +8,29 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<header>
-  <div class="brand">Coffeecore ☕</div>
-  <nav>
-    <a href="#stickers">Stickers</a>
-    <a href="#cases">Phone Cases</a>
-    <a href="#cart">Cart <span class="badge" id="cart-count">0</span></a>
-  </nav>
-</header>
+  <header>
+    <div class="brand">Coffeecore ☕</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stickers.html">Stickers</a>
+      <a href="cases.html">Phone Cases</a>
+      <a href="cart.html">Cart <span class="badge" id="cart-count">0</span></a>
+    </nav>
+  </header>
 
-<main>
-  <p class="note">Tip: replace the SVGs with your real photos (same filenames) and they’ll show instantly.</p>
+  <main>
+    <section class="hero">
+      <h1>Welcome to Coffeecore</h1>
+      <p>Cozy phone cases & cute stickers made with love.</p>
+      <div class="cta-buttons">
+        <a class="btn" href="stickers.html">Shop Stickers</a>
+        <a class="btn" href="cases.html">Shop Phone Cases</a>
+      </div>
+    </section>
+  </main>
 
-  <section id="stickers">
-    <h2>Stickers</h2>
-    <div class="grid" id="stickers-grid"></div>
-  </section>
+  <footer>© 2025 Coffeecore — handmade & cozy</footer>
 
-  <section id="cases">
-    <h2>Phone Cases</h2>
-    <div class="grid" id="cases-grid"></div>
-  </section>
-
-  <section id="cart">
-    <h2>Your Cart</h2>
-    <ul id="cart-items"></ul>
-    <p id="cart-total"><strong>Total:</strong> ₹0</p>
-    <button class="btn secondary" onclick="clearCart()">Clear Cart</button>
-    <button class="btn" onclick="checkout()">Checkout</button>
-  </section>
-</main>
-
-<footer>© 2025 Coffeecore — handmade & cozy</footer>
-
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
