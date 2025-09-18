@@ -67,5 +67,22 @@
       sidebar.classList.toggle('active');
     });
   </script>
+  <!-- Search functionality -->
+<div id="search-box" style="display:none; text-align:center; margin:20px;">
+  <input type="text" placeholder="Search products..." style="padding:8px; width:80%;">
+</div>
+
+<script>
+  const searchIcon = document.querySelector('.fa-magnifying-glass');
+  const searchBox = document.getElementById('search-box');
+
+  searchIcon.addEventListener('click', () => {
+    if (searchBox.style.display === "none") {
+      searchBox.style.display = "block";
+    } else {
+      searchBox.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
