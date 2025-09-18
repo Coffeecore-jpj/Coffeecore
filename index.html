@@ -20,8 +20,12 @@
   <i class="fas fa-bars menu-btn" id="menu-btn"></i>
   <div class="logo">Coffeecore</div>
   <div class="header-icons">
-  <i id="search-icon" class="fa-solid fa-magnifying-glass" title="Search"></i>
-  <i id="cart-icon" class="fa-solid fa-cart-shopping" title="Cart"></i>
+  <button id="search-icon" class="icon-btn" title="Search" aria-label="Search">
+  <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+  <a href="cart.html" id="cart-link" class="icon-btn" title="Cart" aria-label="Cart">
+  <i class="fa-solid fa-cart-shopping"></i>
+</a>
 </div>
 </header>
 
@@ -56,29 +60,20 @@
 
   <!-- JavaScript for sidebar toggle -->
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const sidebar = document.getElementById('sidebar');
+  // search toggle (uses CSS class 'visible' so we don't rely on inline styles)
+  const searchIcon = document.getElementById('search-icon');
+  const searchBox = document.getElementById('search-box'); // your existing div
 
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
-  </script>
+  searchIcon.addEventListener('click', () => {
+    if (!searchBox) return;
+    searchBox.classList.toggle('visible');
+  });
+</script>
   <!-- Search functionality -->
 <div id="search-box" style="display:none; text-align:center; margin:20px;">
   <input type="text" placeholder="Search products..." style="padding:8px; width:80%;">
 </div>
 
-<script>
-  const searchIcon = document.querySelector('.fa-magnifying-glass');
-  const searchBox = document.getElementById('search-box');
 
-  searchIcon.addEventListener('click', () => {
-    if (searchBox.style.display === "none") {
-      searchBox.style.display = "block";
-    } else {
-      searchBox.style.display = "none";
-    }
-  });
-</script>
 </body>
 </html>
