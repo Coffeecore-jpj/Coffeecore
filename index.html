@@ -1,36 +1,159 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Coffeecore — Shop</title>
-  <meta name="description" content="Coffeecore — cute stickers & cozy phone cases"/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffeecore Shop</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      color: #333;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 1rem;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .header-icons {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Hamburger menu */
+    .menu-btn {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: #fff;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+      padding: 2rem 1rem;
+      transition: left 0.3s ease;
+      z-index: 20;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 1rem 0;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    /* Main content */
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .category {
+      margin: 2rem 0;
+    }
+
+    .category a {
+      display: inline-block;
+      background: #87cefa;
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #87cefa;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+  </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
-    <div class="brand">Coffeecore ☕</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stickers.html">Stickers</a>
-      <a href="cases.html">Phone Cases</a>
-      <a href="cart.html">Cart <span class="badge" id="cart-count">0</span></a>
-    </nav>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+    <div class="logo">Coffeecore ☕</div>
+    <div class="header-icons">
+      🔍
+      🛒
+    </div>
   </header>
 
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="shipping.html">Shipping Policy</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
+
+  <!-- Main -->
   <main>
-    <section class="hero">
-      <h1>Welcome to Coffeecore</h1>
-      <p>Cozy phone cases & cute stickers made with love.</p>
-      <div class="cta-buttons">
-        <a class="btn" href="stickers.html">Shop Stickers</a>
-        <a class="btn" href="cases.html">Shop Phone Cases</a>
-      </div>
-    </section>
+    <h1>Welcome to Coffeecore</h1>
+    <p>Choose a category to start shopping:</p>
+
+    <div class="category">
+      <a href="stickers.html">Stickers</a>
+    </div>
+    <div class="category">
+      <a href="phonecases.html">Phone Cases</a>
+    </div>
   </main>
 
-  <footer>© 2025 Coffeecore — handmade & cozy</footer>
+  <!-- Footer -->
+  <footer>
+    <p>Thanks for supporting sustainable small business 🌱</p>
+    <p>
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a> |
+      <a href="shipping.html">Shipping</a> |
+      <a href="privacy.html">Privacy</a>
+    </p>
+  </footer>
 
-  <script src="app.js"></script>
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+  </script>
+
 </body>
 </html>
