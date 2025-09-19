@@ -123,14 +123,21 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-/* Search box hidden by default */
 #search-box {
   display: none;
-  text-align: center;
-  margin: 20px;
+  position: absolute;
+  top: 60px; /* below header */
+  right: 20px;
+  background: white;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 1000;
 }
 
-/* When visible class is toggled */
+#search-box.visible {
+  display: block;
+}
 #search-box.visible {
   display: block;
 }
