@@ -133,9 +133,16 @@ footer a:hover {
   border: 1px solid #ccc;
   border-radius: 8px;
   z-index: 1000;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
 }
 
 #search-box.visible {
   display: block;
+}
+#search-box input {
+  width: 200px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
