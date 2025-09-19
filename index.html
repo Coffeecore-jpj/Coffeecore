@@ -59,16 +59,24 @@
   </footer>
 
   <!-- JavaScript for sidebar toggle -->
+    <!-- JavaScript for sidebar toggle and search -->
   <script>
-  // search toggle (uses CSS class 'visible' so we don't rely on inline styles)
-  const searchIcon = document.getElementById('search-icon');
-  const searchBox = document.getElementById('search-box'); // your existing div
+    const menuBtn = document.getElementById('menu-btn');
+    const sidebar = document.getElementById('sidebar');
+    const searchIcon = document.getElementById('search-icon');
+    const searchBox = document.getElementById('search-box');
 
-  searchIcon.addEventListener('click', () => {
-    if (!searchBox) return;
-    searchBox.classList.toggle('visible');
-  });
-</script>
+    // Hamburger toggle
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+
+    // Search toggle
+    searchIcon.addEventListener('click', () => {
+      if (!searchBox) return;
+      searchBox.classList.toggle('visible');
+    });
+  </script>
   <!-- Search functionality -->
 <div id="search-box" style="display:none;">
   <input type="text" placeholder="Search products..." style="padding:8px; width:80%;">
