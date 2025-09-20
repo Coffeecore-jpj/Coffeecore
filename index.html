@@ -65,6 +65,18 @@
 
   <!-- JavaScript for sidebar toggle -->
     <!-- JavaScript for sidebar toggle and search -->
+    <!-- Footer -->
+  <footer>
+    <p>Thanks for supporting this small business</p>
+    <p>
+      <a href="about.html">About</a> | 
+      <a href="contact.html">Contact</a> | 
+      <a href="shipping.html">Shipping</a> | 
+      <a href="privacy.html">Privacy</a>
+    </p>
+  </footer>
+
+  <!-- JavaScript goes here -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
     const sidebar = document.getElementById('sidebar');
@@ -80,32 +92,31 @@
     searchIcon.addEventListener('click', () => {
       if (!searchBox) return;
       searchBox.classList.toggle('visible');
-      // Search functionality
-const searchInput = document.getElementById('search-input');
-const searchBtn = document.getElementById('search-btn');
+    });
 
-function handleSearch() {
-  const query = searchInput.value.toLowerCase();
+    // Search functionality
+    const searchInput = document.getElementById('search-input');
+    const searchBtn = document.getElementById('search-btn');
 
-  if (query.includes("sticker")) {
-    window.location.href = "stickers.html";
-  } else if (query.includes("case")) {
-    window.location.href = "cases.html";
-  } else {
-    alert("No results found!");
-  }
-}
+    function handleSearch() {
+      const query = searchInput.value.toLowerCase();
 
-searchBtn.addEventListener('click', handleSearch);
+      if (query.includes("sticker")) {
+        window.location.href = "stickers.html";
+      } else if (query.includes("case")) {
+        window.location.href = "cases.html";
+      } else {
+        alert("No results found!");
+      }
+    }
 
-searchInput.addEventListener('keypress', (e) => {
-  if (e.key === "Enter") {
-    handleSearch();
-  }
-});
-      
+    searchBtn.addEventListener('click', handleSearch);
+
+    searchInput.addEventListener('keypress', (e) => {'
+      if (e.key === "Enter") {
+        handleSearch();
+      }
     });
   </script>
-  
-</body>
+  </body>
 </html>
