@@ -247,3 +247,22 @@ footer a:hover {
 #search-btn:hover {
   background: #ff7043;
 }
+/* Make search box full width on mobile */
+@media (max-width: 600px) {
+  #search-box {
+    left: 10px;
+    right: 10px;
+    width: auto;
+  }
+
+  #search-box input {
+    flex: 1;
+    width: 100%;
+  }
+
+  #search-box.visible {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
