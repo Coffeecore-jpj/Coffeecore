@@ -12,7 +12,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #dfd7c8; /* morning birch */
+  background: #D9A066; /* alpine clay */
+  color: #A52A2A; /* Brown */
   padding: 1rem;
   border-bottom: 1px solid #eee;
   position: sticky;
@@ -21,9 +22,9 @@ header {
 }
 
 header .logo {
-  font-family:'Liber', cursive; /* cozy Pinterest font */
+  font-family:'Liber', cozy; /* cozy Pinterest font */
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: 600
   color: #333; /* you can keep morning birch (# DFD7C8) as background */
 }
 
