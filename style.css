@@ -262,7 +262,8 @@ footer a:hover {
     flex-direction: row;
     align-items: center;
   }
-  /* Make header icon buttons plain (no grey background) */
+
+  /* Always apply this, not just on mobile */
 .icon-btn {
   background: none;
   border: none;
@@ -276,3 +277,7 @@ footer a:hover {
 .icon-btn:focus {
   outline: none;
 }
+
+  
+ 
+
