@@ -124,28 +124,7 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
-#search-box {
-  display: none;
-  position: absolute;
-  top: 60px; /* below header */
-  right: 20px;
-  background: white;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  z-index: 1000;
-  box-shadow:0 2px 8px rgba(0,0,0,0.2);
-}
 
-#search-box.visible {
-  display: block;
-}
-#search-box input {
-  width: 200px;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
 /* Product grid */
 .grid {
   display: grid;
@@ -210,7 +189,7 @@ footer a:hover {
 #search-box {
   display: none; /* stays hidden until toggled */
   position: absolute;
-  top: 70px; /* sits just below the header */
+  top: 100%; /* sits just below the header */
   right: 20px;
   background: #fff;
   padding: 8px 12px;
