@@ -22,9 +22,9 @@ header {
 }
 
 header .logo {
-  font-family:'Liber', cozy; /* cozy Pinterest font */
+  font-family:'Liber Retro', sans-serif; /* header font */
   font-size: 1.5rem;
-  font-weight: 600
+  font-weight: 600;
   color: #333; /* you can keep morning birch (# DFD7C8) as background */
 }
 
@@ -84,6 +84,7 @@ main h1 {
 }
 
 main p {
+  font-family: 'Dobidoo', sans-serif; /* intro font */
   font-size: 1.1rem;
   color: #555;
 }
@@ -103,11 +104,25 @@ main p {
   border-radius: 8px; 
   font-size: 1.2rem;
   transition: 0.3s;
+  color: white;.
 }
 
-.categories .btn:hover {
-  background: #FF9F4D; /* slightly darker warm zone on hover*/
-  }
+/* Stickers button */.
+.categories .btn.stickers {
+  background: #D9A066; /* Alpine Clay */
+}
+.categories .btn.stickers:hover {
+  background: #c58e44;
+}
+
+/* Phone Cases button */
+.categories .btn.cases {
+  background: #A52A2A; /* Brown */
+}
+
+.categories .btn.cases:hover {
+  background: #8b1f1f;
+}
 
 /* Footer */
 footer {
