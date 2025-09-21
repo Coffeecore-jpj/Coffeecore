@@ -1,6 +1,6 @@
 /* General */
 body {
-  font-family: 'Libre Franklin';
+  font-family: 'Libre Franklin', sans-serif;
   margin: 0;
   padding: 0;
   background: #f9f9f9;
@@ -21,8 +21,10 @@ header {
 }
 
 header .logo {
+  font-family:'Liber', cursive; /* cozy Pinterest font */
   font-size: 1.5rem;
   font-weight: 600;
+  color: #333; /* you can keep morning birch (# DFD7C8) as background */
 }
 
 /* Hamburger button */
@@ -90,21 +92,21 @@ main p {
 }
 
 .categories .btn {
+  font-family: 'kollecktif', sans-serif; /* cozy, warm font */
   display: inline-block;
   background: coral;
   color: almond cream;
   text-decoration: none;
   padding: 1rem 2rem;
   margin: 1rem;
-  border-radius: 8px;
+  border-radius: 8px; 
   font-size: 1.2rem;
   transition: 0.3s;
 }
 
 .categories .btn:hover {
-  background: #ff7043;
-  
-}
+  background: #FF9F4D; /* slightly darker warm zone on hover*/
+  }
 
 /* Footer */
 footer {
