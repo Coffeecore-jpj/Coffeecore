@@ -52,7 +52,7 @@ header .logo {
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
   padding-top: 2rem;
   transition: left 0.3s ease;
-  z-index: 999;
+  z-index: 1100; /* higher than header */
 }
 
 .sidebar.active {
