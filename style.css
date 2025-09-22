@@ -40,7 +40,6 @@ header .logo {
   font-size: 1.2rem;
   cursor: pointer;
 }
-
 /* Sidebar (hidden by default) */
 .sidebar {
   position: fixed;
@@ -52,12 +51,15 @@ header .logo {
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
   padding-top: 2rem;
   transition: left 0.3s ease;
-  z-index: 1100; /* higher than header */
+  z-index: 900; /* stays BELOW header when hidden */
 }
 
 .sidebar.active {
   left: 0;
+  z-index: 1200; /* ABOVE header when open */
 }
+
+
 
 .sidebar a {
   display: block;
