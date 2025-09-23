@@ -298,5 +298,20 @@ footer a:hover {
   opacity: 1;
   visibility: visible;
 }
- 
+  .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* semi-transparent black */
+  z-index: 1050; /* below sidebar but above page content */
+  display: none;
+}
+
+.overlay.active {
+  display: block;
+}
+
+  
 
