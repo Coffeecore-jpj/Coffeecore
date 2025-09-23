@@ -67,45 +67,63 @@
 
   <!-- JavaScript goes here -->
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const sidebar = document.getElementById('sidebar');
-    const searchIcon = document.getElementById('search-icon');
-    const searchBox = document.getElementById('search-box');
+  const menuBtn = document.getElementById('menu-btn');
+  const sidebar = document.getElementById('sidebar');
+  const searchIcon = document.getElementById('search-icon');
+  const searchBox = document.getElementById('search-box');
 
-    // Hamburger toggle
-    menuBtn.addEventListener('click', () => {
-      sidebar.classList.toggle('active');
-    });
+  // Hamburger toggle
+  menuBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+  });
 
-    // Search toggle
-    searchIcon.addEventListener('click', () => {
-      if (!searchBox) return;
-      searchBox.classList.toggle('visible');
-    });
-
-    // Search functionality
-    const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
-
-    function handleSearch() {
-      const query = searchInput.value.toLowerCase();
-
-      if (query.includes("sticker")) {
-        window.location.href = "stickers.html";
-      } else if (query.includes("case")) {
-        window.location.href = "cases.html";
-      } else {
-        alert("No results found!");
-      }
+  // 👉 Close sidebar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (
+      sidebar.classList.contains('active') && // only run if sidebar open
+      !sidebar.contains(e.target) &&          // click not inside sidebar
+      !menuBtn.contains(e.target)             // click not on hamburger
+    ) {
+      sidebar.classList.remove('active');
     }
+  });
 
-    searchBtn.addEventListener('click', handleSearch);
+  // 👉 Close sidebar on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === "Escape" && sidebar.classList.contains('active')) {
+      sidebar.classList.remove('active');
+    }
+  });
 
-    searchInput.addEventListener('keypress', (e) => {
-      if (e.key === "Enter") {
-        handleSearch();
-      }
-    });
-  </script>
+  // Search toggle
+  searchIcon.addEventListener('click', () => {
+    if (!searchBox) return;
+    searchBox.classList.toggle('visible');
+  });
+
+  // Search functionality
+  const searchInput = document.getElementById('search-input');
+  const searchBtn = document.getElementById('search-btn');
+
+  function handleSearch() {
+    const query = searchInput.value.toLowerCase();
+
+    if (query.includes("sticker")) {
+      window.location.href = "stickers.html";
+    } else if (query.includes("case")) {
+      window.location.href = "cases.html";
+    } else {
+      alert("No results found!");
+    }
+  }
+
+  searchBtn.addEventListener('click', handleSearch);
+
+  searchInput.addEventListener('keypress', (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  });
+</script>
   </body>
 </html>
