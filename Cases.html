@@ -8,14 +8,34 @@
 </head>
 <body>
   <header>
-    <div class="logo">Coffeecore ☕</div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="stickers.html">Stickers</a>
-      <a href="cases.html">Phone Cases</a>
-      <a href="cart.html">Cart <span class="badge" id="cart-count">0</span></a>
-    </nav>
-  </header>
+  <i class="fas fa-bars menu-btn" id="menu-btn"></i>
+  <div class="logo">Coffeecore</div>
+  <div class="header-icons">
+    <button id="search-icon" class="icon-btn" title="Search" aria-label="Search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+    <a href="cart.html" class="icon-btn">
+      <i class="fa-solid fa-cart-shopping"></i>
+      Cart <span class="badge" id="cart-count">0</span>
+    </a>
+  </div>
+  <!-- Search box -->
+  <div id="search-box">
+    <input type="text" id="search-input" placeholder="Search products...">
+    <button id="search-btn">Search</button>
+  </div>
+</header>
+
+  <!-- Sidebar menu for mobile -->
+  <nav class="sidebar" id="sidebar">
+  <a href="about.html">About Us</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="shipping.html">Shipping Policy</a>
+  <a href="privacy.html">Privacy Policy</a>
+</nav>
+  
+<!-- Dark overlay -->
+<div id="overlay"></div>
 
   <main>
     <h2>Phone Cases</h2>
@@ -24,7 +44,15 @@
     </div>
   </main>
 
-  <footer>© 2025 Coffeecore</footer>
+  <footer>
+  <p>Thanks for supporting this small business</p>
+  <p>
+    <a href="about.html">About</a> | 
+    <a href="contact.html">Contact</a> | 
+    <a href="shipping.html">Shipping</a> | 
+    <a href="privacy.html">Privacy</a>
+  </p>
+</footer>
 
   <script src="app.js"></script>
 </body>
