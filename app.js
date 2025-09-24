@@ -68,16 +68,16 @@ function renderGrid(key, elId){
       </div>\`;
     wrap.appendChild(card);
   });
-} 
-
+}
 function checkout(){
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  if(total<=0){ alert('Cart is empty'); return; }
-  alert("Checkout temporarily disabled.");
-}
+  if(total<=0){ 
+    alert('Cart is empty'); 
+    return; 
+  }
 
   const options = {
-    key: "rzp_test_yourkeyhere",   // TODO: replace with your real Razorpay Key ID
+    key: "rzp_test_yourkeyhere",   // replace with real Razorpay key
     amount: total * 100,           // in paise
     currency: "INR",
     name: "Coffeecore",
@@ -89,12 +89,18 @@ function checkout(){
     },
     prefill: { name: "", email: "" }
   };
+
   const rzp = new Razorpay(options);
   rzp.open();
 }
 
 // initial render
-renderGrid('stickers','stickers-grid');
-renderGrid('cases','cases-grid');
+if (document.getElementById('stickers-grid')) {
+  renderGrid('stickers','stickers-grid');
+}
+
+if (document.getElementById('cases-grid')) {
+  renderGrid('cases','cases-grid');
+}
 renderCart();
 updateCartCount();
