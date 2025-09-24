@@ -6,9 +6,9 @@ const PRODUCTS = {
     { id:'st3', name:'CoffeeLove', price:149, img:'sticker3.svg' }
   ],
   cases: [
-    { id:'c1', name:'Case Design 1', price:299, img:'case1.svg' },
-    { id:'c2', name:'Case Design 2', price:349, img:'case2.svg' },
-  ]
+  { id:'c1', name:'Case Design 1', price:299, img:'images/case1.svg' },
+  { id:'c2', name:'Case Design 2', price:349, img:'images/case2.svg' },
+]
 };
 
 let cart = JSON.parse(localStorage.getItem('coffeecore_cart') || '[]');
