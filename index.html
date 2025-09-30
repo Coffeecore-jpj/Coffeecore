@@ -126,29 +126,47 @@
   });
 
   // Search functionality
-  const searchInput = document.getElementById('search-input');
-  const searchBtn = document.getElementById('search-btn');
+  // Product list (you can expand this anytime)
+const products = [
+  { name: "Eco Sticker Pack", link: "stickers.html#eco-sticker-pack" },
+  { name: "Coffee Sticker Set", link: "stickers.html#coffee-sticker-set" },
+  { name: "Bioplastic Phone Case", link: "cases.html#bioplastic-case" },
+  { name: "Laptop Sleeve Natural", link: "laptopsleeves.html#natural-sleeve" }
+];
 
-  function handleSearch() {
-    const query = searchInput.value.toLowerCase();
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+const resultsList = document.getElementById("search-results");
 
-    if (query.includes("sticker")) {
-      window.location.href = "stickers.html";
-    } else if (query.includes("case")) {
-      window.location.href = "cases.html";
-    } else {
-      alert("No results found!");
-    }
-  }
+function showResults(query) {
+  resultsList.innerHTML = "";
+  if (!query) return;
 
-  searchBtn.addEventListener('click', handleSearch);
-
-  searchInput.addEventListener('keypress', (e) => {
-    if (e.key === "Enter") {
-      handleSearch();
-    }
+  const matches = products.filter(p => p.name.toLowerCase().includes(query));
+  matches.forEach(p => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${p.link}">${p.name}</a>`;
+    resultsList.appendChild(li);
   });
-</script>
+
+  if (matches.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "No results found.";
+    resultsList.appendChild(li);
+  }
+}
+
+searchInput.addEventListener("input", () => {
+  const query = searchInput.value.toLowerCase();
+  showResults(query);
+});
+
+searchBtn.addEventListener("click", () => {
+  const firstResult = resultsList.querySelector("a");
+  if (firstResult) {
+    window.location.href = firstResult.href;
+  }
+});
   <script>
   if (typeof updateCartCount === "function") {
     updateCartCount();
