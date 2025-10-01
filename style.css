@@ -162,25 +162,26 @@ footer a:hover {
 /* Each product card */
 .product {
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid #f0f0f0; /* softer border */
+  border-radius: 12px;/* softer corners */
   padding: 15px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* softer cozy shadow */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .product:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* deeper hover shadow */
 }
 
 /* Product images */
 .product img {
   max-width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 10px; /* rounder, matches card style */
   margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* subtle shadow for depth */
 }
 
 /* Product title */
