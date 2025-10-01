@@ -129,10 +129,12 @@ main p {
 /* Footer */
 footer {
   text-align: center;
-  background: #333;
-  color: white;
-  padding: 1rem;
+  background: #3E2C2C; /* match header */
+  color: #FDF7F0; /* cream */
+  padding: 1.5rem 1rem;
   margin-top: 2rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
 }
 
 footer a {
