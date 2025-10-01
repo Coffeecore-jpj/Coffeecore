@@ -99,17 +99,22 @@ main p {
   font-family: 'kollecktif', sans-serif; /* cozy, warm font */
   display: inline-block;
   background: coral;
-  color: almond cream;
+  color: white; /* corrected */
   text-decoration: none;
   padding: 1rem 2rem;
   margin: 1rem;
-  border-radius: 8px; 
+  border-radius: 20px; /* pill-like cozy shape */
   font-size: 1.2rem;
-  transition: 0.3s;
-  color: white;.
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle cozy shadow */
 }
 
-/* Stickers button */.
+.categories .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* hover lift effect */
+}
+
+/* Stickers button */
 .categories .btn.stickers {
   background: #D9A066; /* Alpine Clay */
 }
@@ -121,7 +126,6 @@ main p {
 .categories .btn.cases {
   background: #A52A2A; /* Brown */
 }
-
 .categories .btn.cases:hover {
   background: #8b1f1f;
 }
