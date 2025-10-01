@@ -23,6 +23,12 @@ a:focus,
 button:focus {
   outline: none;
 }
+/* Remove underline and color for visited links too */
+a:link,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* Header */
 header {
