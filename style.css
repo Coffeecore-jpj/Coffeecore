@@ -203,13 +203,16 @@ footer a:hover {
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 16px; /* pill-like cozy shape */
   cursor: pointer;
   transition: background 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle shadow */
 }
 
 .product button:hover {
   background: #ff7043;
+  transform: translateY(-2px); /* slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* stronger shadow on hover */
 }
   /* Always apply this, not just on mobile */
 .icon-btn {
