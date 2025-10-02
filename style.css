@@ -108,11 +108,20 @@ main h1 {
   margin-bottom: 0.5rem;
 }
 
-main p {
+main p.subtitle {
   font-family: 'Dobidoo', sans-serif; /* intro font */
   font-size: 1.1rem;
-  color: #555;
+  color: #777;
+  text-align: left;
+  margin: 0.5rem 0.2rem 1rem;
 }
+
+section {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px soild rgba(0,0,0.08);
+}
+  
 
 .categories {
   margin-top: 2rem;
