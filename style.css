@@ -365,5 +365,62 @@ footer a:hover {
     width: 100%;
   }
 }
-  
+.product-carousel {
+  margin: 40px auto;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.carousel-title {
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful vibe */
+  color: #D2691E; /* coffee-orange heading */
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background-color: #D2691E;
+  border-radius: 10px;
+}
+
+.carousel-card {
+  min-width: 250px;
+  border-radius: 15px;
+  background-color: #fff8f0; /* soft coffee cream */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  text-align: center;
+}
+
+.carousel-card:hover {
+  transform: scale(1.05);
+}
+
+.carousel-card img {
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.product-label {
+  display: block;
+  margin: 10px 0;
+  color: #D2691E;
+  font-weight: bold;
+}
+
 
