@@ -73,7 +73,7 @@
 </section>
 
     <!-- Products -->
-    <section id="Choose a category to start shopping">
+    <section id="Choose a category to shop">
       <h2>Choose a category to shop</h2>
       <div class="categories">
         <a href="stickers.html" class="btn">Stickers</a>
@@ -86,9 +86,9 @@
     <section id="about">
       <h2>About Coffeecore</h2>
       <p>
-        From a young age, I wanted to reduce unnecessary plastic waste in products and packaging. 
+        Hi! I'm the maker behind Coffeecore. 
         Coffeecore is about stylish, sustainable design using biodegradable and bioplastic materials. 
-        Packaging is eco-friendly too — because products can look good and protect the planet at the same time.
+     From a young age, I wanted to reduce unnecessary plastic waste in products and packaging. 
       </p>
     </section>
   </main>
@@ -165,7 +165,7 @@ function showResults(query) {
   const matches = products.filter(p => p.name.toLowerCase().includes(query));
   matches.forEach(p => {
     const li = document.createElement("li");
-    li.innerHTML = `<a href="${p.link}">${p.name}</a>`;
+    li.innerHTML = `<a href="₹{p.link}">₹{p.name}</a>`;
     resultsList.appendChild(li);
   });
 
