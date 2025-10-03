@@ -1,9 +1,9 @@
 // ---- Basic storefront with cart + Razorpay ----
 const PRODUCTS = {
   stickers: [
-    { id:'st1', name:'CuteCoffee', price:129,  img:'sticker1.svg' },
-    { id:'st2', name:'HandpaintedPastries', price:170, img:'sticker2.svg' },
-    { id:'st3', name:'CoffeeLove', price:149, img:'sticker3.svg' }
+    { id:'st1', name:'CuteCoffee', price:129,  img:'CuteCoffee.svg' },
+    { id:'st2', name:'HandpaintedPastries', price:170, img:'HandPaintedPastries.svg' },
+    { id:'st3', name:'CoffeeLove', price:149, img:'CoffeeLove.svg' }
   ],
   cases: [
   { id:'c1', name:'Case Design 1', price:299, img:'images/case1.svg' },
