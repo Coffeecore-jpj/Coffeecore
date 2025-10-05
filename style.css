@@ -130,7 +130,7 @@ section {
 .categories .btn {
   font-family: 'kollecktif', sans-serif; /* cozy, warm font */
   display: inline-block;
-  background: coral;
+  background: #ffc56e;
   color: white; /* corrected */
   text-decoration: none;
   padding: 1rem 2rem;
