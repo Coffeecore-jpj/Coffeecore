@@ -3,7 +3,7 @@ body {
   font-family: 'Cuprum', cursive;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #fffadb;
   color: #333;
 }
 /* Remove default link styles */
@@ -35,8 +35,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #b56f36; /* alpine clay */
-  color:  #3E2C2C; /* deep coffee brown text */
+  background: #38220f; /* brown */
+  color: #fdfbd4; /* light white text */
   padding: 1rem;
   border-bottom: 1px solid #eee;
   position: sticky;
