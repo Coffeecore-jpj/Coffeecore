@@ -46,10 +46,9 @@ header {
 
 header .logo {
   font-family: 'Sigma', sans-serif; 
-}
   font-size: 1.5rem;
   font-weight: 600;
-  color: #333; /* you can keep morning birch (# DFD7C8) as background */
+  color: #fdfbd4; /* matches header text color */
 }
 
 /* Hamburger button */
@@ -375,9 +374,8 @@ footer a:hover {
 }
 
 .carousel-title {
-  font-family: .carousel-title {
-  font-family: 'Comic Neue', cursive; /* mild, playful, complements header */
-  color: #D2691E; /* coffee-orange heading */
+  font-family: 'Comic Neue', cursive;
+  color: #D2691E;
   margin-bottom: 20px;
   text-align: center;
   font-size: 2rem;
