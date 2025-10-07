@@ -3,7 +3,7 @@ body {
   font-family: 'Fascinate', cursive;
   margin: 0;
   padding: 0;
-  background: #fffadb;
+  background: #fff4db;
   color: #333;
 }
 /* Remove default link styles */
@@ -35,7 +35,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #38220f; /* brown */
+  background: #753f10; /* brown */
   color: #fdfbd4; /* light white text */
   padding: 1rem;
   border-bottom: 1px solid #eee;
@@ -70,7 +70,7 @@ header .logo {
   left: -250px;
   width: 250px;
   height: 100%;
-  background: #fff;
+  background: #fff4db;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
   padding-top: 2rem;
   transition: left 0.3s ease;
