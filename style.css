@@ -45,7 +45,9 @@ header {
 }
 
 header .logo {
-  font-family:'Pacifico', cursive; /* header font */
+  font-family:header .logo {
+  font-family: 'Sigma', sans-serif; 
+}
   font-size: 1.5rem;
   font-weight: 600;
   color: #333; /* you can keep morning birch (# DFD7C8) as background */
@@ -104,6 +106,8 @@ main {
 }
 
 main h1 {
+  font-family: 'Chewy', cursive;
+}
   font-size: 2rem;
   margin-bottom: 0.5rem;
 }
@@ -372,7 +376,8 @@ footer a:hover {
 }
 
 .carousel-title {
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* playful vibe */
+  font-family: .carousel-title {
+  font-family: 'Comic Neue', cursive; /* mild, playful, complements header */
   color: #D2691E; /* coffee-orange heading */
   margin-bottom: 20px;
   text-align: center;
