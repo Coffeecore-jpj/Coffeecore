@@ -414,10 +414,13 @@ footer a:hover {
   transform: scale(1.05);
 }
 
-.carousel-card img {
-  width: 100%;
+  .carousel-card img {
+  width: 250px;
+  height: auto;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  margin: 0 auto;
+  display: block;
 }
 
 .product-label {
