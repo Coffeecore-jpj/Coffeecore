@@ -1,6 +1,5 @@
 /* General */
 body {
-  font-family: 'Fascinate', cursive;
   margin: 0;
   padding: 0;
   background: #fff4db;
@@ -53,6 +52,7 @@ header .logo {
 
 /* Hamburger button */
 .menu-btn {
+  font-family: 'inter', sans-serif;
   font-size: 1.5rem;
   cursor: pointer;
 }
