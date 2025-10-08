@@ -20,9 +20,52 @@
   <main>
     <h2>CuteCoffee</h2>
     <img src="https://via.placeholder.com/300" alt="Coffee Sticker">
-    <p>Price:₹129</p>
-    <p>A fun coffee-themed sticker to decorate your laptop or water bottle.</p>
-    <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
+    <p>Price: Rs. 129</p>
+    <div class="quantity-selector">
+  <button type="button" id="decrease">-</button>
+  <input type="number" id="quantity" value="1" min="1">
+  <button type="button" id="increase">+</button>
+</div>
+    <script>
+const quantityInput = document.getElementById('quantity');
+const increaseBtn = document.getElementById('increase');
+const decreaseBtn = document.getElementById('decrease');
+
+increaseBtn.addEventListener('click', () => {
+  quantityInput.value = parseInt(quantityInput.value) + 1;
+});
+
+decreaseBtn.addEventListener('click', () => {
+  if (parseInt(quantityInput.value) > 1) {
+    quantityInput.value = parseInt(quantityInput.value) - 1;
+  }
+});
+</script>
+
+    <div class="product-buttons">
+  <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
+  <button onclick="buyNow('st1','CuteCoffee',129)">Buy It Now</button>
+</div>
+
+<script>
+function buyNow(id, name, price) {
+  const quantity = parseInt(document.getElementById('quantity').value);
+  // Add to cart logic
+  addToCart(id, name, price, quantity);
+  // Redirect to cart page
+  window.location.href = 'cart.html';
+}
+</script>
+
+    <section class="product-description">
+  <h3>Description</h3>
+  <p>A fun coffee-themed sticker to decorate your laptop or water bottle. Made from high-quality materials, perfect for gifts or personal use.</p>
+</section>
+
+<section class="product-reviews">
+  <h3>Reviews</h3>
+  <p>No reviews yet. Be the first to review this product!</p>
+</section>
   </main>
 
   <footer>© 2025 Coffeecore</footer>
