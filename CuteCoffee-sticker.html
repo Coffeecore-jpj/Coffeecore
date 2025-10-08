@@ -97,6 +97,41 @@ function buyNow(id, name, price) {
     <button id="submitReview">Submit Review</button>
   </div>
 </section>
+
+    <section class="review-section">
+  <h3>Customer Reviews</h3>
+
+  <!-- Average Rating -->
+  <div class="average-rating">
+    <span class="stars" id="avg-stars">⭐⭐⭐⭐⭐</span>
+    <span id="avg-rating">(5.0 / 5)</span>
+  </div>
+
+  <!-- Review Form -->
+  <form class="review-form" id="review-form">
+    <label for="reviewer-name">Your Name</label>
+    <input type="text" id="reviewer-name" placeholder="Type your name..." required>
+
+    <label for="rating">Your Rating</label>
+    <div class="rating-stars" id="rating-stars">
+      <span data-value="1">⭐</span>
+      <span data-value="2">⭐</span>
+      <span data-value="3">⭐</span>
+      <span data-value="4">⭐</span>
+      <span data-value="5">⭐</span>
+    </div>
+
+    <label for="review-text">Your Review</label>
+    <textarea id="review-text" rows="4" placeholder="Share your experience..." required></textarea>
+
+    <button type="submit" class="submit-review-btn">Submit Review</button>
+  </form>
+
+  <!-- Display Reviews -->
+  <div class="review-list" id="review-list">
+    <p>No reviews yet. Be the first to share your thoughts!</p>
+  </div>
+</section>
   </main>
 
   <footer>© 2025 Coffeecore</footer>
