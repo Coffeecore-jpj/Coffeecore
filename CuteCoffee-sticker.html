@@ -100,5 +100,48 @@ function buyNow(id, name, price) {
   </main>
 
   <footer>© 2025 Coffeecore</footer>
-</body>
+
+  <script>
+    // Review star selection
+    const stars = document.querySelectorAll('#starRating span');
+    let selectedRating = 0;
+
+    stars.forEach(star => {
+      star.addEventListener('click', () => {
+        selectedRating = star.getAttribute('data-value');
+        stars.forEach(s => s.classList.remove('selected'));
+        star.classList.add('selected');
+        let previous = star.previousElementSibling;
+        while (previous) {
+          previous.classList.add('selected');
+          previous = previous.previousElementSibling;
+        }
+      });
+    });
+
+    // Handle review submit
+    document.getElementById('submitReview').addEventListener('click', () => {
+      const text = document.getElementById('reviewText').value.trim();
+      if (!selectedRating || !text) {
+        alert('Please select a star rating and write a review before submitting.');
+        return;
+      }
+
+      const reviewList = document.querySelector('.review-list');
+      const newReview = document.createElement('div');
+      newReview.classList.add('review-item');
+      newReview.innerHTML = `
+        <p>⭐️ Rating: ${selectedRating}/5</p>
+        <p>${text}</p>
+        <hr>
+      `;
+      reviewList.appendChild(newReview);
+
+      // Reset form
+      document.getElementById('reviewText').value = '';
+      stars.forEach(s => s.classList.remove('selected'));
+      selectedRating = 0;
+    });
+
+  </body>
 </html>
