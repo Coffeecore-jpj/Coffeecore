@@ -185,85 +185,6 @@ footer a:hover {
   text-decoration: underline;
 }
 
-/* Product grid */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px
-}
-
-/* Each product card */
-.product {
-  background: #fff;
-  border: 1px solid #f0f0f0; /* softer border */
-  border-radius: 12px;/* softer corners */
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* softer cozy shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.product:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* deeper hover shadow */
-}
-
-/* Product images */
-.product img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px; /* rounder, matches card style */
-  margin-bottom: 0.75rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* subtle shadow for depth */
-}
-
-/* Product title */
-.product h3 {
-  font-size: 1.1rem;
-  margin: 1.2rem 0;
-  color: #333;
-}
-
-/* Price */
-.product p {
-  font-weight: bold;
-  color: #555;
-  margin-bottom: 0.75rem;
-}
-
-/* Add to cart button */
-.product button {
-  background: coral;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 16px; /* pill-like cozy shape */
-  cursor: pointer;
-  transition: background 0.3s ease;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle shadow */
-}
-
-.product button:hover {
-  background: #ff7043;
-  transform: translateY(-2px); /* slight lift on hover */
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* stronger shadow on hover */
-}
-  /* Always apply this, not just on mobile */
-.icon-btn {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  cursor: pointer;
-  color: inherit;
-  font-size: 1.2rem;
-}
-
-.icon-btn:focus {
-  outline: none;
-}
-
 /* Overlay (hidden by default) */
 #overlay {
   position: fixed;
@@ -296,14 +217,6 @@ footer a:hover {
 .overlay.active {
   display: block;
 }
-  
-/* ... your existing styles ... */
-
-.overlay.active {
-  display: block;
-}
-
-/* 🔽 ADD THIS PART AT THE END */
 
 /* Search results dropdown */
 #search-results {
@@ -427,5 +340,106 @@ footer a:hover {
   color: #D2691E;
   font-weight: bold;
 }
+
+/* Single Product Page*/
+
+
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15); /* deeper hover shadow */
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* rounder, matches card style */
+  margin-bottom: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05); /* subtle shadow for depth */
+}
+
+/* Product title */
+.product h3 {
+  font-size: 1.1rem;
+  margin: 1.2rem 0;
+  color: #333;
+}
+
+/* Price */
+.product p {
+  font-weight: bold;
+  font-size: 1rem
+  color: #555;
+  margin-bottom: 0.75rem;
+}
+
+.quantity-selecter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.5rem;
+}
+
+.quantity-selector input {
+  width: 50px;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.quantity-selector button {
+  background: #A52A2A;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.quantity-selector button:hover {
+  background: #8b1f1f;
+
+
+/* Add to cart button */
+
+   <div class="buttons">
+    <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
+    <button onclick="buyNow('st1','CuteCoffee',129)">Buy It Now</button>
+  </div>
+.product button {
+  background: coral;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 16px; /* pill-like cozy shape */
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.product button:hover {
+  background: #ff7043;
+  transform: translateY(-2px); /* slight lift on hover */
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* stronger shadow on hover */
+}
+
+  /* Description and Reviews */
+.product-page .description,
+.product-page .reviews {
+  text-align: left;
+  max-width: 600px;
+  margin: 1.5rem auto;
+}
+
+.product-page .description h3,
+.product-page .reviews h3 {
+  color: #A52A2A;
+  margin-bottom: 0.5rem;
+}
+
+  
 
 
