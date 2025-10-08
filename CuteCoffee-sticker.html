@@ -21,14 +21,13 @@
     <h2>CuteCoffee</h2>
     <img src="https://via.placeholder.com/300" alt="Coffee Sticker">
     <p>Price: Rs. 129</p>
-    <div class="quantity-selector">
-      <button>-</button>
-        <input type="number" value="1" />
-        <button>+</button>
-  <button type="button" id="decrease">-</button>
-  <input type="number" id="quantity" value="1" min="1">
-  <button type="button" id="increase">+</button>
-</div>
+
+    <!--Quantity selector-->
+      <div class="quantity-selector">
+      <button type="button" id ="decrease">-</button>
+        <input type="number" value="1" min="1">
+        <button type="button" id="increase">+</button>
+      </div>
     <script>
 const quantityInput = document.getElementById('quantity');
 const increaseBtn = document.getElementById('increase');
@@ -45,6 +44,8 @@ decreaseBtn.addEventListener('click', () => {
 });
 </script>
 
+    <!--Add to cart and buy now buttons--!>
+
     <div class="product-buttons">
   <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
   <button onclick="buyNow('st1','CuteCoffee',129)">Buy It Now</button>
@@ -60,6 +61,8 @@ function buyNow(id, name, price) {
 }
 </script>
 
+    <!--description--!>
+    
     <section class="product-description">
   <h3>Description</h3>
   <p>A cute coffee-themed sticker pack of 4, that can be applied to any smooth, clean surface. 
@@ -69,9 +72,30 @@ function buyNow(id, name, price) {
   </p>
 </section>
 
-<section class="product-reviews">
+  
+    <!--Reviews--!>
+
+    <section class="reviews">
   <h3>Reviews</h3>
-  <p>No reviews yet. Be the first to review this product!</p>
+
+  <!-- Existing reviews -->
+  <div class="review-list">
+    <p>No reviews yet. Be the first to review this product!</p>
+  </div>
+
+  <!-- Write a review -->
+  <div class="review-form">
+    <h4>Write a review</h4>
+    <div class="stars" id="starRating">
+      <span data-value="1">⭐</span>
+      <span data-value="2">⭐</span>
+      <span data-value="3">⭐</span>
+      <span data-value="4">⭐</span>
+      <span data-value="5">⭐</span>
+    </div>
+    <textarea id="reviewText" placeholder="Share your thoughts..."></textarea>
+    <button id="submitReview">Submit Review</button>
+  </div>
 </section>
   </main>
 
