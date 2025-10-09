@@ -44,7 +44,7 @@ decreaseBtn.addEventListener('click', () => {
 });
 </script>
 
-    <!--Add to cart and buy now buttons--!>
+    <!--Product buttons--!>
 
     <div class="product-buttons">
   <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
@@ -61,122 +61,100 @@ function buyNow(id, name, price) {
 }
 </script>
 
-    <!--description--!>
+    <!--Description--!>
     
     <section class="product-description">
   <h3>Description</h3>
-  <p>A cute coffee-themed sticker pack of 4, that can be applied to any smooth, clean surface. 
+  <p>
+    A cute coffee-themed sticker pack of 4, that can be applied to any smooth, clean surface. 
      These stickers are made from durable vynl and coated with glossy laminate making them waterproof,scratchproof and resistant to fading. 
      The adhesion is strong and the stickers will only come off when pulled.
-    
-  </p>
+    </p>
 </section>
 
   
     <!--Reviews--!>
 
-    <section class="reviews">
-  <h3>Reviews</h3>
-
-  <!-- Existing reviews -->
-  <div class="review-list">
-    <p>No reviews yet. Be the first to review this product!</p>
-  </div>
-
-  <!-- Write a review -->
-  <div class="review-form">
-    <h4>Write a review</h4>
-    <div class="stars" id="starRating">
-      <span data-value="1">⭐</span>
-      <span data-value="2">⭐</span>
-      <span data-value="3">⭐</span>
-      <span data-value="4">⭐</span>
-      <span data-value="5">⭐</span>
-    </div>
-    <textarea id="reviewText" placeholder="Share your thoughts..."></textarea>
-    <button id="submitReview">Submit Review</button>
-  </div>
-</section>
-
-    <section class="review-section">
+    <section class="review-sections">
   <h3>Customer Reviews</h3>
 
-  <!-- Average Rating -->
-  <div class="average-rating">
-    <span class="stars" id="avg-stars">⭐⭐⭐⭐⭐</span>
+  <!-- Average rating -->
+  <div class= "average-rating">
+    <span class="stars" id="avg-stars">⭐️⭐️⭐️⭐️⭐️</span>
     <span id="avg-rating">(5.0 / 5)</span>
   </div>
 
   <!-- Review Form -->
-  <form class="review-form" id="review-form">
-    <label for="reviewer-name">Your Name</label>
-    <input type="text" id="reviewer-name" placeholder="Type your name..." required>
+    <form class= "review-form" id="review-form">
+      <label for= "reviewer-name">Your Name</label>
+      <input type="text" id= "reviewer-name" placeholder="Type your name..." required />
+      <label>Your Rating</label>
+        <div class="rating-stars" id="rating-stars">
+          <span data-value="1">⭐</span>
+          <span data-value="2">⭐</span>
+          <span data-value="3">⭐</span>
+          <span data-value="4">⭐</span>
+          <span data-value="5">⭐</span>
+        </div>
 
-    <label for="rating">Your Rating</label>
-    <div class="rating-stars" id="rating-stars">
-      <span data-value="1">⭐</span>
-      <span data-value="2">⭐</span>
-      <span data-value="3">⭐</span>
-      <span data-value="4">⭐</span>
-      <span data-value="5">⭐</span>
-    </div>
+        <label for="review-text">Your Review</label>
+        <textarea id="review-text" rows="4" placeholder="Share your experience..." required></textarea>
 
-    <label for="review-text">Your Review</label>
-    <textarea id="review-text" rows="4" placeholder="Share your experience..." required></textarea>
+        <button type="submit" class="submit-review-btn">Submit Review</button>
+      </form>
 
-    <button type="submit" class="submit-review-btn">Submit Review</button>
-  </form>
-
-  <!-- Display Reviews -->
-  <div class="review-list" id="review-list">
-    <p>No reviews yet. Be the first to share your thoughts!</p>
-  </div>
-</section>
+      <!-- Display Reviews -->
+      <div class="review-list" id="review-list">
+        <p>No reviews yet. Be the first to share your thoughts!</p>
+      </div>
+    </section>
   </main>
 
+  
   <footer>© 2025 Coffeecore</footer>
 
   <script>
-    // Review star selection
-    const stars = document.querySelectorAll('#starRating span');
-    let selectedRating = 0;
+    // Review System
+    const ratingStars = document.querySelectorAll('#rating-stars span');
+    let rating = 0;
 
-    stars.forEach(star => {
+    ratingStars.forEach(star => {
       star.addEventListener('click', () => {
-        selectedRating = star.getAttribute('data-value');
-        stars.forEach(s => s.classList.remove('selected'));
-        star.classList.add('selected');
-        let previous = star.previousElementSibling;
-        while (previous) {
-          previous.classList.add('selected');
-          previous = previous.previousElementSibling;
+        rating = parseInt(star.dataset.value);
+        ratingStars.forEach(s => s.classList.remove('active'));
+        for (let i = 0; i < rating; i++) {
+          ratingStars[i].classList.add('active');
         }
       });
     });
 
-    // Handle review submit
-    document.getElementById('submitReview').addEventListener('click', () => {
-      const text = document.getElementById('reviewText').value.trim();
-      if (!selectedRating || !text) {
-        alert('Please select a star rating and write a review before submitting.');
+    document.getElementById('review-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('reviewer-name').value.trim();
+      const text = document.getElementById('review-text').value.trim();
+
+      if (!rating || !text) {
+        alert('Please select a rating and write a review.');
         return;
       }
 
-      const reviewList = document.querySelector('.review-list');
+      const reviewList = document.getElementById('review-list');
       const newReview = document.createElement('div');
       newReview.classList.add('review-item');
       newReview.innerHTML = `
-        <p>⭐️ Rating: ${selectedRating}/5</p>
-        <p>${text}</p>
-        <hr>
+        <strong>₹{name || 'Anonymous'}</strong>
+        <div class="stars">₹{'⭐'.repeat(rating)}</div>
+        <p>₹{text}</p>
       `;
       reviewList.appendChild(newReview);
 
       // Reset form
-      document.getElementById('reviewText').value = '';
-      stars.forEach(s => s.classList.remove('selected'));
-      selectedRating = 0;
+      document.getElementById('review-form').reset();
+      ratingStars.forEach(s => s.classList.remove('active'));
+      rating = 0;
     });
-
-  </body>
+  </script>
+</body>
 </html>
+      
+
