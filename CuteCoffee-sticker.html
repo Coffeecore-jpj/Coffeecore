@@ -25,7 +25,7 @@
     <!--Quantity selector-->
       <div class="quantity-selector">
       <button type="button" id ="decrease">-</button>
-        <input type="number" value="1" min="1">
+        <input type="number" id="quantity" value="1" min="1">
         <button type="button" id="increase">+</button>
       </div>
     <script>
@@ -142,9 +142,9 @@ function buyNow(id, name, price) {
       const newReview = document.createElement('div');
       newReview.classList.add('review-item');
       newReview.innerHTML = `
-        <strong>₹{name || 'Anonymous'}</strong>
+        <strong>${name || 'Anonymous'}</strong>
         <div class="stars">₹{'⭐'.repeat(rating)}</div>
-        <p>₹{text}</p>
+        <p>${text}</p>
       `;
       reviewList.appendChild(newReview);
 
