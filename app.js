@@ -44,11 +44,11 @@ function renderCart() {
     total += i.price * i.qty;
     const li = document.createElement('li');
     li.innerHTML = `
-      <span>${i.name} — ₹${i.price}</span>
+      <span>₹{i.name} — ₹{i.price}</span>
       <span class="qty">
-        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('${i.id}',-1)">−</button>
-        <span>${i.qty}</span>
-        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('${i.id}',1)">+</button>
+        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('₹{i.id}',-1)">−</button>
+        <span>₹{i.qty}</span>
+        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('₹{i.id}',1)">+</button>
       </span>`;
     ul.appendChild(li);
   });
@@ -56,20 +56,22 @@ function renderCart() {
   if (totalEl) totalEl.innerHTML = '<strong>Total:</strong> ₹' + total;
 }
 
-function renderGrid(key, elId) {
+function renderGrid(key, elId){
   const wrap = document.getElementById(elId);
-  if (!wrap) return;
   wrap.innerHTML = '';
-  PRODUCTS[key].forEach(p => {
+  PRODUCTS[key].forEach(p=>{
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className='card';
     card.innerHTML = `
-      <img src="${p.img}" alt="${p.name}">
-      <div class="pad">
-        <h3>${p.name}</h3>
-        <div class="price">₹${p.price}</div>
-        <button class="btn" onclick="addToCart('${p.id}','${p.name}',${p.price})">Add to Cart</button>
-      </div>`;
+      <a href="₹{p.name}.html" class="product-link">
+        <img src="₹{p.img}" alt="₹{p.name}">
+        <div class="pad">
+          <h3>₹{p.name}</h3>
+          <div class="price">₹{p.price}</div>
+        </div>
+      </a>
+      <button class="btn" onclick="addToCart('₹{p.id}','₹{p.name}',₹{p.price})">Add to Cart</button>
+    `;
     wrap.appendChild(card);
   });
 }
@@ -141,8 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const div = document.createElement('div');
       div.classList.add('review-item');
       div.innerHTML = `
-        <strong>${r.name}</strong> — <span class="stars">${'⭐'.repeat(r.rating)}</span>
-        <p>${r.text}</p>
+        <strong>₹{r.name}</strong> — <span class="stars">₹{'⭐'.repeat(r.rating)}</span>
+        <p>₹{r.text}</p>
       `;
       reviewList.appendChild(div);
     });
