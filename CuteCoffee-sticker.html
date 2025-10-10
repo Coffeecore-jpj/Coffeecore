@@ -28,16 +28,15 @@
         <input type="number" id="quantity" value="1" min="1">
         <button type="button" id="increase">+</button>
       </div>
-    <script>
 
     <!--Product buttons--!>
 
     <div class="product-buttons">
+    
   <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
   <button onclick="buyNow('st1','CuteCoffee',129)">Buy It Now</button>
 </div>
-
-<script>
+      
 function buyNow(id, name, price) {
   const quantity = parseInt(document.getElementById('quantity').value);
   // Add to cart logic
