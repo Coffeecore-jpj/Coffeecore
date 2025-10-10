@@ -36,15 +36,6 @@
   <button onclick="addToCart('st1','CuteCoffee',129)">Add to Cart</button>
   <button onclick="buyNow('st1','CuteCoffee',129)">Buy It Now</button>
 </div>
-      
-function buyNow(id, name, price) {
-  const quantity = parseInt(document.getElementById('quantity').value);
-  // Add to cart logic
-  addToCart(id, name, price, quantity);
-  // Redirect to cart page
-  window.location.href = 'cart.html';
-}
-</script>
 
     <!--Description--!>
     
@@ -98,6 +89,8 @@ function buyNow(id, name, price) {
 
   
   <footer>© 2025 Coffeecore</footer>
+  <script src="app.js"></script>
+</body>
 </html>
       
 
