@@ -98,49 +98,6 @@ function buyNow(id, name, price) {
 
   
   <footer>© 2025 Coffeecore</footer>
-
-  <script>
-    // Review System
-    const ratingStars = document.querySelectorAll('#rating-stars span');
-    let rating = 0;
-
-    ratingStars.forEach(star => {
-      star.addEventListener('click', () => {
-        rating = parseInt(star.dataset.value);
-        ratingStars.forEach(s => s.classList.remove('active'));
-        for (let i = 0; i < rating; i++) {
-          ratingStars[i].classList.add('active');
-        }
-      });
-    });
-
-    document.getElementById('review-form').addEventListener('submit', e => {
-      e.preventDefault();
-      const name = document.getElementById('reviewer-name').value.trim();
-      const text = document.getElementById('review-text').value.trim();
-
-      if (!rating || !text) {
-        alert('Please select a rating and write a review.');
-        return;
-      }
-
-      const reviewList = document.getElementById('review-list');
-      const newReview = document.createElement('div');
-      newReview.classList.add('review-item');
-      newReview.innerHTML = `
-        <strong>${name || 'Anonymous'}</strong>
-        <div class="stars">₹{'⭐'.repeat(rating)}</div>
-        <p>${text}</p>
-      `;
-      reviewList.appendChild(newReview);
-
-      // Reset form
-      document.getElementById('review-form').reset();
-      ratingStars.forEach(s => s.classList.remove('active'));
-      rating = 0;
-    });
-  </script>
-</body>
 </html>
       
 
