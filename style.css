@@ -106,7 +106,8 @@ main {
 main h1 {
   font-family: 'Chewy', cursive;
 }
-  font-size: 2rem;
+  font-size: 4rem;
+  text-align: center;
   margin-bottom: 0.5rem;
 }
 
@@ -115,7 +116,7 @@ main p.subtitle {
   font-size: 1.1rem;
   color: #777;
   text-align: left;
-  margin: 0.5rem 0.2rem 1rem;
+  margin-left: 20px;
 }
 
 section {
