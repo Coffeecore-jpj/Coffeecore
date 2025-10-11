@@ -219,29 +219,4 @@ document.addEventListener('DOMContentLoaded', ()=>{
   if(document.getElementById('sleeves-grid')) renderGrid('sleeves','sleeves-grid');
 });
 
-// Animate cart icon and search bar
-window.addEventListener("DOMContentLoaded", () => {
-  const cartIcon = document.querySelector(".cart-icon");
-  const searchBar = document.querySelector(".search-bar");
-
-  if(cartIcon) {
-    cartIcon.style.opacity = 0;
-    cartIcon.style.transform = "translateX(50px)";
-    setTimeout(() => {
-      cartIcon.style.transition = "all 0.8s ease";
-      cartIcon.style.opacity = 1;
-      cartIcon.style.transform = "translateX(0)";
-    }, 500);
-  }
-
-  if(searchBar) {
-    searchBar.style.opacity = 0;
-    searchBar.style.transform = "translateX(-50px)";
-    setTimeout(() => {
-      searchBar.style.transition = "all 0.8s ease";
-      searchBar.style.opacity = 1;
-      searchBar.style.transform = "translateX(0)";
-    }, 700);
-  }
-});
 
