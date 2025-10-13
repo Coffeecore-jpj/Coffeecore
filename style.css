@@ -1,4 +1,5 @@
 /* General */
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Inter:wght@300;400;600&family=Caveat:wght@400;700&display=swap');
 body {
   margin: 0;
   padding: 0;
@@ -375,6 +376,7 @@ footer a:hover {
 
 /* Product title */
 .product h3 {
+  font-family: 'chewy', cursive;
   font-size: 1.1rem;
   margin: 1.2rem 0;
   color: #333;
@@ -569,7 +571,7 @@ textarea {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Comic Neue', cursive;
+  font-family: 'Inter', sans-serif; 
   color: #5a3a1a;
 }
 
@@ -614,13 +616,14 @@ textarea {
   border-radius: 8px;
   padding: 0.6rem;
   font-size: 1rem;
-  font-family: 'Comic Neue', cursive;
+  font-family: 'Inter', sans-serif;
   background-color: #fffdf8;
   color: #4e2b00;
 }
 
-.review-form textarea {
-  resize: none;
+.review-form textarea.handwritten {
+  font-family: 'Caveat', cursive;
+  font-size: 1.05rem;
 }
 
 /* Star Rating */
