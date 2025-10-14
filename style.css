@@ -281,8 +281,8 @@ footer a:hover {
 /* Search button styling */
 #search-box #search-btn {
   padding: 0.6rem 1rem;
-  background-color: #bd7557;
-  color: white;
+  background-color: #753f10;
+  color: fdfbd4;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -292,7 +292,7 @@ footer a:hover {
 }
 
 #search-box #search-btn:hover {
-  background-color: #c58e44;
+  background-color: #fdf1d1;
   transform: translateY(-1px);
 }
 
