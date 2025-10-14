@@ -253,16 +253,47 @@ footer a:hover {
   /* Align search dropdown under the search icon */
 #search-box {
   position: absolute;
-  top: 50px; /* below the header */
-  right: 20px; /* same as search icon spacing */
-  width: 220px; /* fixed width for desktop */
-  display: none; /* hidden by default */
+  top: 50px; 
+  right: 20px; 
+  width: 220px; 
+  display: none; 
   flex-direction: column;
   gap: 4px;
 }
 
 #search-box.visible {
   display: flex;
+}
+
+/* Search input styling */
+#search-box input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d9a76a;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  background: #fffdf8;
+  color: #4e2b00;
+}
+
+/* Search button styling */
+#search-box #search-btn {
+  padding: 0.6rem 1rem;
+  background-color: #bd7557;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Kollektif', sans-serif;
+  font-size: 0.95rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#search-box #search-btn:hover {
+  background-color: #c58e44;
+  transform: translateY(-1px);
 }
 
 /* Make the dropdown width 100% of the input */
@@ -282,6 +313,7 @@ footer a:hover {
     width: 100%;
   }
 }
+
 .product-carousel {
   margin: 40px auto;
   max-width: 1200px;
