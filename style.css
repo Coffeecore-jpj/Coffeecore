@@ -35,8 +35,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #753f10; /* brown */
-  color: #fdfbd4; /* light white text */
+  background: none;
+  color: none;
   padding: 1rem;
   border-bottom: 1px solid #eee;
   position: sticky;
