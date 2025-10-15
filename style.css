@@ -61,14 +61,13 @@ header .logo {
 /* Header icons: Cart and Search */
 .header-icons a.icon-btn,
 .header-icons button.icon-btn {
-  background-color: #753f10; /* brown background */
+  background-color: none
   color: #fffdf8;     /* cream icon/text */
   padding: 0.5rem 0.8rem;
-  border-radius: 8px;
+  border: none
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .header-icons a.icon-btn:hover,
