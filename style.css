@@ -35,8 +35,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: none;
-  color: none;
+  background: #a0522d;
+  color: #fdfbd4;
   padding: 1rem;
   border-bottom: 1px solid #eee;
   position: sticky;
@@ -62,7 +62,7 @@ header .logo {
 .header-icons a.icon-btn,
 .header-icons button.icon-btn {
   background-color: none;
-  color: #fffdf8;     /* cream icon/text */
+  color: #fdfbd4    /* cream icon/text */
   padding: 0.5rem 0.8rem;
   border: none;
   display: inline-flex;
@@ -73,7 +73,7 @@ header .logo {
 .header-icons a.icon-btn:hover,
 .header-icons button.icon-btn:hover {
   background-color: #a0522d; /* hover brown */
-  color: #fffdf8;            /* hover cream */
+  color: #fdfbd4;            /* hover cream */
 }
 
 /* Ensure icons inherit color */
