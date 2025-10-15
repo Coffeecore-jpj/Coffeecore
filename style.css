@@ -62,7 +62,7 @@ header .logo {
 .header-icons a.icon-btn,
 .header-icons button.icon-btn {
   background-color: #753f10; /* brown background */
-  color: #fdfbd4;           /* cream icon/text */
+  color: #fffdf8;     /* cream icon/text */
   padding: 0.5rem 0.8rem;
   border-radius: 8px;
   display: inline-flex;
