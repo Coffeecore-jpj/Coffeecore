@@ -61,8 +61,8 @@ header .logo {
 /* Header icons: Cart and Search */
 .header-icons a.icon-btn,
 .header-icons button.icon-btn {
-  background-color: none;
-  color: #fdfbd4    /* cream icon/text */
+  background: none;
+  color: #fdfbd4;   /* cream icon/text */
   padding: 0.5rem 0.8rem;
   border: none;
   display: inline-flex;
@@ -123,7 +123,6 @@ main {
 
 main h1 {
   font-family: 'Chewy', cursive;
-}
   font-size: 4rem;
   text-align: center;
   margin-bottom: 0.5rem;
