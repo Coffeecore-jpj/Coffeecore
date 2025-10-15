@@ -58,12 +58,30 @@ header .logo {
   cursor: pointer;
 }
 
-/* Header icons */
-.header-icons i {
-  margin-left: 1rem;
-  font-size: 1.2rem;
-  cursor: pointer;
+/* Header icons: Cart and Search */
+.header-icons a.icon-btn,
+.header-icons button.icon-btn {
+  background-color: #753f10; /* brown background */
+  color: #fdfbd4;           /* cream icon/text */
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background 0.3s ease, color 0.3s ease;
 }
+
+.header-icons a.icon-btn:hover,
+.header-icons button.icon-btn:hover {
+  background-color: #a0522d; /* hover brown */
+  color: #fffdf8;            /* hover cream */
+}
+
+/* Ensure icons inherit color */
+.header-icons i {
+  color: inherit;
+}
+
 /* Sidebar (hidden by default) */
 .sidebar {
   position: fixed;
