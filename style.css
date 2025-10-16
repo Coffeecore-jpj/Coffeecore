@@ -314,7 +314,7 @@ font-size: 1.2rem;
 
 #search-box #search-btn:hover {
   background-color: #fdf1d1;
-  transform: translateY(-1px);
+  transform: translateY(-1px) scale(1.15);
 }
 
 /* Make the dropdown width 100% of the input */
