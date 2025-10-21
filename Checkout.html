@@ -15,17 +15,8 @@
 <script>
 document.getElementById('checkout-form').addEventListener('submit', function(e){
   e.preventDefault();
-  alert('Order placed successfully!');
-  localStorage.removeItem('cart'); // empty cart after checkout
-  window.location.href = 'index.html';
-});
-</script>
-
-<script>
-document.getElementById('checkout-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert('Order placed successfully!');
-  localStorage.removeItem('cart');
-  window.location.href = 'index.html'; // redirect to main page
+  alert('✅ Order placed successfully!');
+  localStorage.removeItem('cart'); // clear the cart after checkout
+  window.location.href = 'index.html'; // send user back to homepage
 });
 </script>
