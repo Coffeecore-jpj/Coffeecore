@@ -33,5 +33,44 @@
       <a href="privacy.html">Privacy</a>
     </p>
   </footer>
+
+  <script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+const cartItemsDiv = document.getElementById('cart-items');
+const cartTotalDiv = document.getElementById('cart-total');
+
+function renderCart() {
+  if(cart.length === 0){
+    cartItemsDiv.innerHTML = "<p>Your cart is currently empty 🛒</p>";
+    cartTotalDiv.innerHTML = '';
+    return;
+  }
+  cartItemsDiv.innerHTML = '';
+  let total = 0;
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <p>${item.name} x ${item.quantity} - ₹${item.price * item.quantity}</p>
+      <button onclick="removeItem('${item.id}')">Remove</button>
+    `;
+    cartItemsDiv.appendChild(div);
+  });
+  cartTotalDiv.innerHTML = `<h3>Total: ₹${total}</h3>`;
+}
+
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function goToCheckout() {
+  window.location.href = 'checkout.html';
+}
+
+renderCart();
+</script>
+  
 </body>
 </html>
