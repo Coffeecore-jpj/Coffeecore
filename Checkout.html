@@ -1,22 +1,105 @@
-<main>
-  <h1>Checkout</h1>
-  <form id="checkout-form">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="tel" name="phone" placeholder="Phone Number" required>
-    <input type="text" name="address" placeholder="Shipping Address" required>
-    <input type="text" name="city" placeholder="City" required>
-    <input type="text" name="state" placeholder="State" required>
-    <input type="text" name="zip" placeholder="ZIP Code" required>
-    <button type="submit">Place Order</button>
-  </form>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Coffeecore</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">Coffeecore</div>
+    <a href="index.html" class="icon-btn">🏠</a>
+  </header>
 
-<script>
-document.getElementById('checkout-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  alert('✅ Order placed successfully!');
-  localStorage.removeItem('cart'); // clear the cart after checkout
-  window.location.href = 'index.html'; // send user back to homepage
-});
-</script>
+  <main>
+    <h1>Checkout</h1>
+
+    <!-- Order Summary -->
+    <section id="checkout-summary">
+      <h2>Your Order</h2>
+      <div id="order-items"></div>
+      <p id="order-total"></p>
+    </section>
+
+    <!-- Checkout Form -->
+    <form id="checkout-form">
+      <h2>Shipping Details</h2>
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="text" id="address" placeholder="Shipping Address" required>
+      <input type="text" id="city" placeholder="City" required>
+      <input type="text" id="state" placeholder="State" required>
+      <input type="text" id="zip" placeholder="ZIP Code" required>
+      <button type="submit">Place Order</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>Thanks for supporting this small business ☕</p>
+  </footer>
+
+  <script>
+    // 🧠 Your Supabase details
+    const SUPABASE_URL = "https://YOUR_PROJECT_ID.supabase.co";
+    const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // 🛒 Load cart
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const orderItems = document.getElementById("order-items");
+    const orderTotal = document.getElementById("order-total");
+
+    if (cart.length === 0) {
+      orderItems.innerHTML = "<p>Your cart is empty.</p>";
+      document.getElementById("checkout-form").style.display = "none";
+    } else {
+      let total = 0;
+      orderItems.innerHTML = `
+        <ul>
+          ${cart
+            .map((item) => {
+              total += item.price * (item.quantity || 1);
+              return `<li>${item.name} - ₹${item.price} × ${(item.quantity || 1)}</li>`;
+            })
+            .join("")}
+        </ul>
+      `;
+      orderTotal.innerHTML = `<strong>Total: ₹${total}</strong>`;
+    }
+
+    // 📨 Handle form submit
+    document.getElementById("checkout-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const orderData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
+        city: document.getElementById("city").value,
+        state: document.getElementById("state").value,
+        zip: document.getElementById("zip").value,
+        items: cart,
+        total: cart.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0),
+        created_at: new Date()
+      };
+
+      // 🧾 Save order in Supabase
+      const { data, error } = await supabase
+        .from("orders")
+        .insert([orderData]);
+
+      if (error) {
+        alert("Error placing order: " + error.message);
+      } else {
+        alert("Order placed successfully!");
+        localStorage.removeItem("cart");
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>
