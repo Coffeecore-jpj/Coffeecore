@@ -82,5 +82,34 @@
   </main>
 
   <footer>© 2025 Coffeecore</footer>
+
+<script>
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(id, name, price) {
+  const existing = cart.find(item => item.id === id);
+  if(existing) existing.quantity += 1;
+  else cart.push({id, name, price, quantity: 1});
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert(name + " added to cart!");
+  updateCartUI();
+}
+
+function buyNow(id, name, price) {
+  localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity: 1}]));
+  window.location.href = 'checkout.html';
+}
+
+function updateCartUI() {
+  const cartCount = document.getElementById('cart-count');
+  if(cartCount) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
+  }
+}
+
+updateCartUI();
+</script>
+  
 </body>
 </html>
