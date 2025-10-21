@@ -1,1 +1,22 @@
+<main>
+  <h1>Checkout</h1>
+  <form id="checkout-form">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <input type="text" name="address" placeholder="Shipping Address" required>
+    <input type="text" name="city" placeholder="City" required>
+    <input type="text" name="state" placeholder="State" required>
+    <input type="text" name="zip" placeholder="ZIP Code" required>
+    <button type="submit">Place Order</button>
+  </form>
+</main>
 
+<script>
+document.getElementById('checkout-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  alert('Order placed successfully!');
+  localStorage.removeItem('cart'); // empty cart after checkout
+  window.location.href = 'index.html';
+});
+</script>
