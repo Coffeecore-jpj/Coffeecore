@@ -167,7 +167,7 @@ function showResults(query) {
   const matches = products.filter(p => p.name.toLowerCase().includes(query));
   matches.forEach(p => {
     const li = document.createElement("li");
-    li.innerHTML = `<a href="₹{p.link}">₹{p.name}</a>`;
+    li.innerHTML = `<a href="${p.link}">${p.name}</a>`;
     resultsList.appendChild(li);
   });
 
@@ -190,9 +190,16 @@ searchBtn.addEventListener("click", () => {
   }
 });
     
-  if (typeof updateCartCount === "function") {
-    updateCartCount();
+ function updateCartUI() {
+  const cartCount = document.getElementById('cart-count');
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if(cartCount) {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    cartCount.textContent = totalItems;
   }
+}
+updateCartUI();
+    
 </script>
   </body>
 </html>
