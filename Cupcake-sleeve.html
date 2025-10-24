@@ -1,1 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cupcake Laptop Sleeve — Coffeecore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Coffeecore</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="stickers.html">Stickers</a>
+      <a href="laptop-sleeves.html">Laptop Sleeves</a>
+      <a href="cases.html">Phone Cases</a>
+      <a href="cart.html">Cart <span id="cart-count">0</span></a>
+    </nav>
+  </header>
 
+  <main data-product-id="lp2">
+    <h2>Cupcake Laptop Sleeve</h2>
+    <img src="https://via.placeholder.com/300" alt="Cupcake Laptop Sleeve">
+    <p>Price: Rs. 1800</p>
+
+    <!-- Quantity selector -->
+    <div class="quantity-selector">
+      <button type="button" id="decrease">-</button>
+      <input type="number" id="quantity" value="1" min="1">
+      <button type="button" id="increase">+</button>
+    </div>
+
+    <!-- Product buttons -->
+    <div class="product-buttons">
+      <button onclick="addToCart('lp2','Cupcake Laptop Sleeve',1800)">Add to Cart</button>
+      <button onclick="buyNow('lp2','Cupcake Laptop Sleeve',1800)">Buy It Now</button>
+    </div>
+
+    <!-- Description -->
+    <section class="product-description">
+      <h3>Description</h3>
+      <p>
+        A cute Cupcake-themed laptop sleeve, designed to protect your laptop while adding a fun and colorful touch.  
+        Durable, lightweight, and ideal for daily use.
+      </p>
+    </section>
+  </main>
+
+  <footer>© 2025 Coffeecore</footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function updateCartUI() {
+      const cartCount = document.getElementById('cart-count');
+      if(cartCount) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+      }
+    }
+
+    function addToCart(id, name, price) {
+      const qty = parseInt(document.getElementById('quantity').value);
+      const existing = cart.find(item => item.id === id);
+      if(existing) existing.quantity += qty;
+      else cart.push({id, name, price, quantity: qty});
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+      updateCartUI();
+    }
+
+    function buyNow(id, name, price) {
+      const qty = parseInt(document.getElementById('quantity').value);
+      localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity: qty}]));
+      window.location.href = 'checkout.html';
+    }
+
+    document.getElementById('increase').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      input.value = parseInt(input.value) + 1;
+    });
+
+    document.getElementById('decrease').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      if(parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+    });
+
+    updateCartUI();
+  </script>
+</body>
+</html>
