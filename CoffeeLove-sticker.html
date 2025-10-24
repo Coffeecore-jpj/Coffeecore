@@ -13,11 +13,13 @@
       <a href="index.html">Home</a>
       <a href="stickers.html">Stickers</a>
       <a href="cases.html">Phone Cases</a>
-      <a href="cart.html">Cart</a>
+      <a href="cart.html" class="icon-btn">
+        🛒 Cart <span id="cart-count">0</span>
+      </a>
     </nav>
   </header>
 
-   <main data-product-id="st1">
+  <main data-product-id="st1">
     <h2>CoffeeLove</h2>
     <img src="https://via.placeholder.com/300" alt="Coffee Sticker">
     <p>Price: Rs. 129</p>
@@ -40,22 +42,18 @@
       <h3>Description</h3>
       <p>
         A cute coffee-themed sticker pack of 4, that can be applied to any smooth, clean surface. 
-        These stickers are made from durable vinyl and coated with glossy laminate making them waterproof, scratchproof, and resistant to fading. 
-        The adhesion is strong and the stickers will only come off when pulled.
+        Durable vinyl, glossy laminate, waterproof, scratchproof, and fade-resistant.
       </p>
     </section>
 
     <!-- Reviews -->
     <section class="review-section">
       <h3>Customer Reviews</h3>
-
-      <!-- Average rating -->
       <div class="average-rating">
         <span class="stars" id="avg-stars">⭐️⭐️⭐️⭐️⭐️</span>
         <span id="avg-rating">(5.0 / 5)</span>
       </div>
 
-      <!-- Review Form -->
       <form class="review-form" id="review-form">
         <label for="reviewer-name">Your Name</label>
         <input type="text" id="reviewer-name" placeholder="Type your name..." required />
@@ -67,14 +65,11 @@
           <span data-value="4">⭐</span>
           <span data-value="5">⭐</span>
         </div>
-
         <label for="review-text">Your Review</label>
         <textarea id="review-text" rows="4" placeholder="Share your experience..." required></textarea>
-
         <button type="submit" class="submit-review-btn">Submit Review</button>
       </form>
 
-      <!-- Display Reviews -->
       <div class="review-list" id="review-list">
         <p>No reviews yet. Be the first to share your thoughts!</p>
       </div>
@@ -84,31 +79,57 @@
   <footer>© 2025 Coffeecore</footer>
 
   <script>
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    // Initialize cart from localStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function addToCart(id, name, price) {
-  const existing = cart.find(item => item.id === id);
-  if(existing) existing.quantity += 1;
-  else cart.push({id, name, price, quantity: 1});
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(name + " added to cart!");
-  updateCartUI();
-}
+    // Update cart UI count
+    function updateCartUI() {
+      const cartCount = document.getElementById('cart-count');
+      if(cartCount) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+      }
+    }
 
-function buyNow(id, name, price) {
-  localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity: 1}]));
-  window.location.href = 'checkout.html';
-}
+    // Add to cart function
+    function addToCart(id, name, price) {
+      const qtyInput = document.getElementById('quantity');
+      const quantity = parseInt(qtyInput.value) || 1;
 
-function updateCartUI() {
-  const cartCount = document.getElementById('cart-count');
-  if(cartCount) {
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    cartCount.textContent = totalItems;
-  }
-}
+      const existing = cart.find(item => item.id === id);
+      if(existing) existing.quantity += quantity;
+      else cart.push({id, name, price, quantity});
 
-updateCartUI();
-</script>
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(name + " added to cart!");
+      updateCartUI();
+    }
+
+    // Buy now function
+    function buyNow(id, name, price) {
+      const qtyInput = document.getElementById('quantity');
+      const quantity = parseInt(qtyInput.value) || 1;
+
+      localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity}]));
+      window.location.href = 'checkout.html';
+    }
+
+    // Quantity buttons
+    const decreaseBtn = document.getElementById('decrease');
+    const increaseBtn = document.getElementById('increase');
+    const qtyInput = document.getElementById('quantity');
+
+    decreaseBtn.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      if(val > 1) qtyInput.value = val - 1;
+    });
+
+    increaseBtn.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      qtyInput.value = val + 1;
+    });
+
+    updateCartUI();
+  </script>
 </body>
 </html>
