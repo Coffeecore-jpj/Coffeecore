@@ -8,7 +8,6 @@
 </head>
 <body>
  <header>
-  <!-- Hamburger on the left -->
   <i class="fas fa-bars menu-btn" id="menu-btn"></i>
   <div class="logo">Coffeecore</div>
   <div class="header-icons">
@@ -20,29 +19,49 @@
       Cart <span class="badge" id="cart-count">0</span>
     </a>
   </div>
-  <!-- Search functionality -->
   <div id="search-box">
     <input type="text" id="search-input" placeholder="Search products...">
     <button id="search-btn">Search</button>
   </div>
 </header>
 
-  <main>
-    <h2>Laptop Sleeves</h2>
-    <div class="grid" id="stickers-grid"></div>
-  </main>
-      
-  <footer>© 2025 Coffeecore</footer>
+<main>
+  <h2>Laptop Sleeves</h2>
+  <div class="grid" id="laptopsleeves-grid"></div>
+</main>
 
-   <script>
-  // Product list
+<footer>© 2025 Coffeecore</footer>
+
+<script>
+  // ---------- Cart system ----------
+  let cart = JSON.parse(localStorage.getItem('coffeecore_cart') || '[]');
+
+  function saveCart(){ localStorage.setItem('coffeecore_cart', JSON.stringify(cart)); }
+  function updateCartCount(){ 
+    const el = document.getElementById('cart-count');
+    if(el) el.textContent = cart.reduce((sum,i)=>sum+(i.qty||1),0);
+  }
+
+  function addToCart(id, name, price){
+    const quantity = 1; // default 1, you can extend to select quantity later
+    const item = cart.find(i=>i.id===id);
+    if(item) item.qty += quantity;
+    else cart.push({id,name,price,qty:quantity});
+    saveCart(); updateCartCount();
+    alert(`${name} added to cart!`);
+  }
+
+  updateCartCount();
+
+  // ---------- Product list ----------
   const laptopsleeves = [
-    
+    { id:'lb1', name:'Coffee Brown Sleeve', price:1800, img:'https://via.placeholder.com/200', link:'CoffeeBrown-sleeve.html' },
+    { id:'lb2', name:'Cupcake Sleeve', price:1800, img:'https://via.placeholder.com/200', link:'Cupcake-sleeve.html' }
   ];
 
-  // Populate laptop-sleeves grid dynamically
-const grid = document.getElementById('laptopsleeves-grid');
-laptopsleeves.forEach(product => {
+  // ---------- Populate grid ----------
+  const grid = document.getElementById('laptopsleeves-grid');
+  laptopsleeves.forEach(product => {
     const div = document.createElement('div');
     div.className = 'product';
     div.innerHTML = `
@@ -56,7 +75,6 @@ laptopsleeves.forEach(product => {
     grid.appendChild(div);
   });
 </script>
-
 
 </body>
 </html>
