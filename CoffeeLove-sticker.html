@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoffeeLove — Coffeecore</title>
+  <title>Coffee Brown Sleeve — Coffeecore</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,17 +12,16 @@
     <nav>
       <a href="index.html">Home</a>
       <a href="stickers.html">Stickers</a>
+      <a href="laptop-sleeves.html">Laptop Sleeves</a>
       <a href="cases.html">Phone Cases</a>
-      <a href="cart.html" class="icon-btn">
-        🛒 Cart <span id="cart-count">0</span>
-      </a>
+      <a href="cart.html">Cart <span id="cart-count">0</span></a>
     </nav>
   </header>
 
-  <main data-product-id="st1">
-    <h2>CoffeeLove</h2>
-    <img src="https://via.placeholder.com/300" alt="Coffee Sticker">
-    <p>Price: Rs. 129</p>
+  <main data-product-id="lp1">
+    <h2>Coffee Brown Sleeve</h2>
+    <img src="https://via.placeholder.com/300" alt="Coffee Brown Sleeve">
+    <p>Price: Rs. 1800</p>
 
     <!-- Quantity selector -->
     <div class="quantity-selector">
@@ -33,56 +32,25 @@
 
     <!-- Product buttons -->
     <div class="product-buttons">
-      <button onclick="addToCart('st1','CoffeeLove',129)">Add to Cart</button>
-      <button onclick="buyNow('st1','CoffeeLove',129)">Buy It Now</button>
+      <button onclick="addToCart('lp1','Coffee Brown Sleeve',1800)">Add to Cart</button>
+      <button onclick="buyNow('lp1','Coffee Brown Sleeve',1800)">Buy It Now</button>
     </div>
 
     <!-- Description -->
     <section class="product-description">
       <h3>Description</h3>
       <p>
-        A cute coffee-themed sticker pack of 4, that can be applied to any smooth, clean surface. 
-        Durable vinyl, glossy laminate, waterproof, scratchproof, and fade-resistant.
+        A stylish Coffee Brown laptop sleeve, perfect for protecting your laptop from scratches, dust, and light impacts.  
+        Durable, lightweight, and easy to carry.
       </p>
-    </section>
-
-    <!-- Reviews -->
-    <section class="review-section">
-      <h3>Customer Reviews</h3>
-      <div class="average-rating">
-        <span class="stars" id="avg-stars">⭐️⭐️⭐️⭐️⭐️</span>
-        <span id="avg-rating">(5.0 / 5)</span>
-      </div>
-
-      <form class="review-form" id="review-form">
-        <label for="reviewer-name">Your Name</label>
-        <input type="text" id="reviewer-name" placeholder="Type your name..." required />
-        <label>Your Rating</label>
-        <div class="rating-stars" id="rating-stars">
-          <span data-value="1">⭐</span>
-          <span data-value="2">⭐</span>
-          <span data-value="3">⭐</span>
-          <span data-value="4">⭐</span>
-          <span data-value="5">⭐</span>
-        </div>
-        <label for="review-text">Your Review</label>
-        <textarea id="review-text" rows="4" placeholder="Share your experience..." required></textarea>
-        <button type="submit" class="submit-review-btn">Submit Review</button>
-      </form>
-
-      <div class="review-list" id="review-list">
-        <p>No reviews yet. Be the first to share your thoughts!</p>
-      </div>
     </section>
   </main>
 
   <footer>© 2025 Coffeecore</footer>
 
   <script>
-    // Initialize cart from localStorage
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Update cart UI count
     function updateCartUI() {
       const cartCount = document.getElementById('cart-count');
       if(cartCount) {
@@ -91,42 +59,30 @@
       }
     }
 
-    // Add to cart function
     function addToCart(id, name, price) {
-      const qtyInput = document.getElementById('quantity');
-      const quantity = parseInt(qtyInput.value) || 1;
-
+      const qty = parseInt(document.getElementById('quantity').value);
       const existing = cart.find(item => item.id === id);
-      if(existing) existing.quantity += quantity;
-      else cart.push({id, name, price, quantity});
-
+      if(existing) existing.quantity += qty;
+      else cart.push({id, name, price, quantity: qty});
       localStorage.setItem('cart', JSON.stringify(cart));
       alert(name + " added to cart!");
       updateCartUI();
     }
 
-    // Buy now function
     function buyNow(id, name, price) {
-      const qtyInput = document.getElementById('quantity');
-      const quantity = parseInt(qtyInput.value) || 1;
-
-      localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity}]));
+      const qty = parseInt(document.getElementById('quantity').value);
+      localStorage.setItem('cart', JSON.stringify([{id, name, price, quantity: qty}]));
       window.location.href = 'checkout.html';
     }
 
-    // Quantity buttons
-    const decreaseBtn = document.getElementById('decrease');
-    const increaseBtn = document.getElementById('increase');
-    const qtyInput = document.getElementById('quantity');
-
-    decreaseBtn.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      if(val > 1) qtyInput.value = val - 1;
+    document.getElementById('increase').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      input.value = parseInt(input.value) + 1;
     });
 
-    increaseBtn.addEventListener('click', () => {
-      let val = parseInt(qtyInput.value) || 1;
-      qtyInput.value = val + 1;
+    document.getElementById('decrease').addEventListener('click', () => {
+      const input = document.getElementById('quantity');
+      if(parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
     });
 
     updateCartUI();
