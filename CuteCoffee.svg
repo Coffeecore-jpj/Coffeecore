@@ -8,7 +8,7 @@
 
   <rect width="100%" height="100%" fill="url(#g)" />
 
-  <!-- ✅ Correct way to add your image -->
+  <!-- ✅ Correct image line -->
   <image href="6E127E6F-449D-4C78-BE5F-02CF12839169.JPG" x="150" y="100" width="500" height="400" />
 
   <text x="50%" y="90%" dominant-baseline="middle" text-anchor="middle"
