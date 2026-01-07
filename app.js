@@ -52,19 +52,22 @@ function renderCart(){
     total += i.price * i.qty;
     const li = document.createElement('li');
     li.innerHTML = `
-      <span class="item-info">
-      <strong>${i.name}</strong><br>
-      <small>₹${i.price} x ${i.qty} = ₹${i.price * i.qty}</small>
-      <span class="qty">
-        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('${i.id}',-1)">−</button>
-        <span>${i.qty}</span>
-        <button class="btn" style="padding:.2rem .6rem" onclick="changeQty('${i.id}',1)">+</button>
-      </span>`;
-    ul.appendChild(li);
-  });
-  const totalEl = document.getElementById('cart-total');
-  if(totalEl) totalEl.innerHTML = '<strong>Total:</strong> ₹' + total;
-}
+  <div class="cart-row">
+    <div class="cart-info">
+      <strong>${i.name}</strong>
+      <div class="cart-sub">
+        ₹${i.price} x ${i.qty} = ₹${i.price * i.qty}
+      </div>
+    </div>
+
+    <div class="cart-qty">
+      <button onclick="changeQty('${i.id}',-1)">−</button>
+      <span>${i.qty}</span>
+      <button onclick="changeQty('${i.id}',1)">+</button>
+    </div>
+  </div>
+`;
+    
 
 function checkout(){
   const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
