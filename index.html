@@ -15,27 +15,37 @@
   
 </head>
 <body>
-  <!-- Header -->
-  <header>
-  <!-- Hamburger on the left -->
-  <i class="fas fa-bars menu-btn" id="menu-btn"></i>
-  <div class="logo">Coffeecore</div>
-  <div class="header-icons">
-  <button id="search-icon" class="icon-btn" title="Search" aria-label="Search">
-    <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-  <a href="cart.html" class="icon-btn">
-    <i class="fa-solid fa-cart-shopping"></i>
-    Cart <span class="badge" id="cart-count">0</span>
-  </a>
-</div>
-    <!-- Search functionality -->
+
+
+  
+<header class="site-header">
+  <div class="header-left">
+    <i class="fas fa-bars menu-btn" id="menu-btn"></i>
+  </div>
+
+  <div class="header-center">
+    <div class="logo">Coffeecore</div>
+  </div>
+
+  <div class="header-right">
+    <button id="search-icon" class="icon-btn" aria-label="Search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
+
+    <a href="cart.html" class="icon-btn">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span class="badge" id="cart-count">0</span>
+    </a>
+  </div>
+</header>
+
+<!-- Search box (OUTSIDE header, important) -->
 <div id="search-box">
   <input type="text" id="search-input" placeholder="Search products...">
-  <button id="search-btn">Search</button>
-  <ul id="search-results"></ul> <!-- new results dropdown -->
+  <ul id="search-results"></ul>
 </div>
-</header>
+
+  
 
   <!-- Sidebar menu -->
   <nav class="sidebar" id="sidebar">
@@ -54,25 +64,7 @@
     <section id="welcome">
       <h1>Welcome to Coffeecore</h1>
     
-      <section class="product-carousel">
-  <h2 class="carousel-title">Latest Products</h2>
-  <div class="carousel-container">
-    <div class="carousel-card" onclick="location.href='CuteCoffee-sticker.html'">
-  <img src="CuteCoffee.svg" alt="Cute Coffee Sticker">
-  <span class="product-label">Cute Coffee</span>
-</div>
-<div class="carousel-card" onclick="location.href='HandpaintedPastries-sticker.html'">
-  <img src="HandPaintedPastries.svg" alt="Hand-Painted Pastries">
-  <span class="product-label">Hand-Painted Pastries</span>
-</div>
-<div class="carousel-card" onclick="location.href='CoffeeLove-sticker.html'">
-  <img src="CoffeeLove.svg" alt="Coffee Love Sticker">
-  <span class="product-label">Coffee Love</span>
-</div>
-    
-    <!-- Add more products as needed -->
-  </div>
-</section>
+      
 
     <!-- Products -->
     <section id="Choose a category to shop">
@@ -183,12 +175,7 @@ searchInput.addEventListener("input", () => {
   showResults(query);
 });
 
-searchBtn.addEventListener("click", () => {
-  const firstResult = resultsList.querySelector("a");
-  if (firstResult) {
-    window.location.href = firstResult.href;
-  }
-});
+
     
  function updateCartUI() {
   const cartCount = document.getElementById('cart-count');
