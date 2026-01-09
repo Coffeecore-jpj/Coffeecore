@@ -245,3 +245,101 @@ footer {
   }
 }
 
+/* ===============================
+   HEADER LAYOUT FIX (ALL DEVICES)
+   =============================== */
+
+.site-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background: #6e381f;
+  color: #fdfbd4;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Left: hamburger */
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+/* Center: logo */
+.header-center {
+  text-align: center;
+}
+
+.logo {
+  font-family: 'Chewy', cursive;
+  font-size: 1.6rem;
+  margin: 0;
+}
+
+/* Right: icons */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Icon sizing (search + cart) */
+.icon-btn i {
+  font-size: 1.3rem;
+}
+
+/* Cart badge */
+.badge {
+  background: #ffcc80;
+  color: #4e2b00;
+  border-radius: 12px;
+  padding: 0 6px;
+  font-size: 0.75rem;
+  margin-left: 4px;
+}
+
+/* ===============================
+   SEARCH BOX (FLOATING, NOT UGLY)
+   =============================== */
+
+#search-box {
+  position: fixed;
+  top: 70px;
+  right: 1rem;
+  width: 90%;
+  max-width: 320px;
+  background: #fff;
+  padding: 0.6rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 2000;
+}
+
+#search-box.visible {
+  display: block;
+}
+
+#search-box input {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #d9a76a;
+}
+
+/* ===============================
+   IPAD / TABLET FIX
+   =============================== */
+
+@media (min-width: 768px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .icon-btn i {
+    font-size: 1.4rem;
+  }
+}
+
