@@ -244,3 +244,51 @@ footer {
     text-align: left;
   }
 }
+/* ========================
+   HEADER ALIGNMENT FIX
+   for tablets and wider screens
+   ======================== */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+/* make logo centered on small/medium screens */
+@media (min-width: 600px) and (max-width: 992px) {
+  header {
+    justify-content: center;
+  }
+
+  header .logo {
+    position: relative;
+    left: 0;
+    text-align: center;
+    flex: 1;
+    font-size: 1.8rem;
+  }
+
+  .header-icons {
+    position: absolute;
+    right: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .header-icons i {
+    font-size: 1.4rem;
+  }
+}
+
+/* on desktop too */
+@media (min-width: 992px) {
+  header .logo {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .header-icons i {
+    font-size: 1.4rem;
+  }
+}
